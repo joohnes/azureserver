@@ -59,4 +59,4 @@ stages:
               scriptType: "bash"
               scriptLocation: "inlineScript"
               inlineScript: |
-                az webapp deployment container config --enable-cd true --name test07-webapp --resource-group test07
+                az webapp deployment container config --enable-cd true --name $(appName) --resource-group test07
