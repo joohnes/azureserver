@@ -49,6 +49,7 @@ stages:
               inlineScript: az deployment group create --resource-group test07 --template-file $(Build.SourcesDirectory)/infrastructure.bicep
             displayName: "Deploy Infrastructure"
       - job: DeployApp
+        dependsOn: DeployInfrastructure
         displayName: "Deploy Application to Azure App Service"
         steps:
           - task: AzureCLI@2
