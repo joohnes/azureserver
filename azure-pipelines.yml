@@ -9,6 +9,7 @@ resources:
 
 variables:
   tag: "$(Build.BuildId)"
+  appName: "test07-webapp-$(Build.BuildId)"
 
 stages:
   - stage: Build
@@ -46,7 +47,7 @@ stages:
               azureSubscription: "test07-srvconnection"
               scriptType: "bash"
               scriptLocation: "inlineScript"
-              inlineScript: az deployment group create --resource-group test07 --template-file $(Build.SourcesDirectory)/infrastructure.bicep
+              inlineScript: az deployment group create --resource-group test07 --template-file $(Build.SourcesDirectory)/infrastructure.bicep --parameters appName=$(appName)
             displayName: "Deploy Infrastructure"
       - job: DeployApp
         dependsOn: DeployInfrastructure

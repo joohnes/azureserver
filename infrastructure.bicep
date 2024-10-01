@@ -1,3 +1,5 @@
+param appName string
+
 resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: 'test07-appsrv'
   location: resourceGroup().location
@@ -9,7 +11,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
 }
 
 resource app 'Microsoft.Web/sites@2021-02-01' = {
-  name: 'app-${uniqueString(resourceGroup().id)}'
+  name: appName
   location: resourceGroup().location
   properties: {
     serverFarmId: appServicePlan.id
