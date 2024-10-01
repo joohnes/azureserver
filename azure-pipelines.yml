@@ -35,7 +35,7 @@ stages:
               azureSubscription: "test07-srvconnection"
               scriptType: "bash"
               scriptLocation: "inlineScript"
-              inlineScript: az group deployment validate --resource-group test07 --template-file $(Build.SourcesDirectory)/infrastructure.bicep
+              inlineScript: az group deployment validate --resource-group test07 --template-file $(Build.SourcesDirectory)/infrastructure.bicep --parameters appName=$(appName)
 
   - stage: Deploy
     jobs:
