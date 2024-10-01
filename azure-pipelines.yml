@@ -58,4 +58,4 @@ stages:
               scriptType: "bash"
               scriptLocation: "inlineScript"
               inlineScript: |
-                az webapp deploy source config --resource-group test07 --name test07-appsrv --src-path $(System.DefaultWorkingDirectory)/azureserver
+                az webapp deployment container config --enable-cd true --name test07-webapp --resource-group test07
