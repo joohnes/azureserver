@@ -1,6 +1,6 @@
 resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: 'test-07'
-  location: location
+  location: resourceGroup().location
   properties: {}
   sku: {
     name: 'S1'
